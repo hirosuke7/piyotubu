@@ -9,6 +9,7 @@ class HiyokosController < ApplicationController
   end
 
   def show
+    
     @comment = Comment.new
     @comments = @hiyoko.comments
   end
