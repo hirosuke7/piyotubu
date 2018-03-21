@@ -49,6 +49,7 @@
       <th><%= sort_link(@q, :family_name, "姓") %></th>
       <th><%= sort_link(@q, :given_name, "名") %></th>
       <th><%= sort_link(@q, :email, "電子メール") %></th>
+      <th>コメント数</th>
       <th>リンク</th>
     </thead>
     <tbody>
@@ -57,6 +58,7 @@
           <td><%= hiyoko.family_name %></td>
           <td><%= hiyoko.given_name %></td>
           <td><%= hiyoko.email %></td>
+          <td><%= hiyoko.comments.size %></td>
           <td><%= link_to '詳細', hiyoko, class: "btn btn-default btn-xs" %></td>
         </tr>
       <% end %>
