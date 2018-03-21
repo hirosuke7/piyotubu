@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :image_url,   presence: true, length: { maximum: 200 }
 
   def full_name
-    family_name + given_name
+    full_name = family_name + given_name
   end
 end
