@@ -6,18 +6,28 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-        <%= f.label :family_name, "姓" %><br />
-        <%= f.text_field :family_name, autofocus: true, class: "form-control" %>
-      </div>
+      <%= f.label :family_name, "姓" %><br />
+      <%= f.text_field :family_name, autofocus: true, class: "form-control" %>
+    </div>
 
-      <div class="form-group">
-        <%= f.label :given_name, "名" %><br />
-        <%= f.text_field :given_name, class: "form-control" %>
-      </div>
+    <div class="form-group">
+      <%= f.label :given_name, "名" %><br />
+      <%= f.text_field :given_name, class: "form-control" %>
+    </div>
 
     <div class="form-group">
       <%= f.label :email, "電子メール" %><br />
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div>
+      現在設定されている画像<%= image_tag current_user.image_url, class: 'media-object', width: 200 %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :image_url, "プロフィール画像" %><br />
+      <%= f.text_field :image_url, class: "form-control" %>
     </div>
 
     <div class="form-group">
