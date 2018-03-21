@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>ひよこ一覧</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <p>おひよこ様情報が表示されます。</p>
+  </div>
+
+  <div class="col-lg-6">
+    <%= link_to 'ひよこ登録', new_hiyoko_path, class: "btn btn-default pull-right" %>
+  </div>
+
+  <%= search_form_for @q do |f| %>
+  <div class="row">
+    <div class="col-sm-3 col-xs-12">
+      <div class="form-group">
+        <%= f.label :family_name_cont, '姓' %>
+        <%= f.search_field :family_name_cont, class: "form-control input-sm" %>
+      </div>
+    </div>
+    <div class="col-sm-3 col-xs-12">
+      <div class="form-group">
+        <%= f.label :given_name_cont, '名' %>
+        <%= f.search_field :given_name_cont, class: "form-control input-sm" %>
+      </div>
+    </div>
+    <div class="col-sm-3 col-xs-12">
+      <div class="form-group">
+        <%= f.label :email_cont, '電子メール' %>
+        <%= f.search_field :email_cont, class: "form-control input-sm" %>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <%= f.submit "検索", class: "btn btn-default" %>
+      <%= link_to "リセット", request.path, class:"btn btn-default" %>
+    </div>
+  </div>
+  <% end %>
+  <hr/>
+
+
+  <table class="table table-striped">
+    <thead>
+      <th><%= sort_link(@q, :family_name, "姓") %></th>
+      <th><%= sort_link(@q, :given_name, "名") %></th>
+      <th><%= sort_link(@q, :email, "電子メール") %></th>
+      <th>リンク</th>
+    </thead>
+    <tbody>
+      <% @hiyokos.each do |hiyoko| %>
+        <tr>
+          <td><%= hiyoko.family_name %></td>
+          <td><%= hiyoko.given_name %></td>
+          <td><%= hiyoko.email %></td>
+          <td><%= link_to '詳細', hiyoko, class: "btn btn-default btn-xs" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @hiyokos %>
+</div>
